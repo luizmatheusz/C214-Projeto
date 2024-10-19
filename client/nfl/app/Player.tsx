@@ -12,6 +12,7 @@ interface PlayerProps {
 }
 
 const Player: React.FC<PlayerProps> = ({ player }) => {
+  if (!player) return null;
   return (
     <div className="flex flex-col justify-start items-center mt-10">
       {/* Container com a foto da NFL e o título "Estatísticas da NFL" */}
