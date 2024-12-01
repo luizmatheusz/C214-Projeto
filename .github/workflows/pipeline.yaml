@@ -60,6 +60,7 @@ jobs:
           pytest --json=result.json
 
       - name: Upload backend test results
+        working-directory: server
         if: always()
         uses: actions/upload-artifact@v4
         with:
