@@ -57,7 +57,7 @@ jobs:
         working-directory: server
         run: |
           source venv/bin/activate
-          pytest --maxfail=1 --disable-warnings -q > result.log; tail -n 10 result.log
+          pytest --result-log=result.log
 
       - name: Upload backend test results
         if: always()
