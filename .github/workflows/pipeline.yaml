@@ -26,6 +26,7 @@ jobs:
         working-directory: client/nfl
         run: |
           npm install
+          npm install --save-dev @babel/preset-typescript
 
       - name: Build the frontend
         working-directory: client/nfl
