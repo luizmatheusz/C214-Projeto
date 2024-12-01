@@ -1,15 +1,12 @@
 "use client"; // Certifique-se de que este componente é renderizado no lado do cliente
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import Image from "next/image";
 
 interface Team {
   name: string;
   abbr: string;
   url: string;
-}
-
-interface Player {
-  name: string;
 }
 
 interface TeamSelectorProps {
@@ -43,10 +40,13 @@ const TeamSelector: React.FC<TeamSelectorProps> = ({ teams, onSelectTeam }) => {
       >
         {selectedTeam ? (
           <>
-            <img
+            <Image
               src={selectedTeam.url}
               alt={selectedTeam.name}
               className="w-16 h-16 object-cover rounded-full"
+              width={16}
+              height={16}
+              unoptimized
             />
             {/* <span>{selectedTeam.abbr}</span> */}
           </>
@@ -63,10 +63,13 @@ const TeamSelector: React.FC<TeamSelectorProps> = ({ teams, onSelectTeam }) => {
               onClick={() => handleItemClick(team)}
               className="flex items-center justify-center p-2 w-1/8 hover:bg-gray-100" // Ajuste w-1/12 para controlar a largura de cada botão
             >
-              <img
+              <Image
                 src={team.url}
                 alt={team.name}
+                width={16}
+                height={16}
                 className="w-16 h-16 object-cover rounded-full" // Ajuste o tamanho da imagem conforme necessário
+                unoptimized
               />
             </button>
           ))}

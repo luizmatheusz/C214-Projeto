@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface PlayerProps {
   player: {
@@ -18,10 +19,13 @@ const Player: React.FC<PlayerProps> = ({ player }) => {
       <div className="flex flex-col md:flex-row bg-gray-100 w-3/4 p-4 rounded-lg shadow-lg">
         {/* Container da foto do jogador */}
         <div className="flex flex-col items-center bg-white p-4 rounded-lg w-full ">
-          <img
+          <Image
             className="w-64 h-64 object-cover rounded-lg"
             src={player?.img || "https://via.placeholder.com/150"}
             alt="Foto do Jogador"
+            width={64}
+            height={64}
+            unoptimized
           />
           <h2 className="text-2xl font-semibold mt-4">
             {player.name || "Nome do Jogador"}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Game } from "./GameCard";
+import Image from "next/image";
 
 interface GamesTableProps {
   games: Game[]; // Agora estamos esperando um array de jogos
@@ -89,10 +90,13 @@ const GamesTable: React.FC<GamesTableProps> = ({ games, team, position }) => {
                   </td>
                   <td className="px-1 py-1">
                     <div className="flex items-center justify-center">
-                      <img
+                      <Image
                         src={game.game.away_team.url}
                         alt={game.game.away_team.name}
+                        width={8}
+                        height={8}
                         className="w-8 h-8 object-cover rounded-full mr-2"
+                        unoptimized
                       />
                     </div>
                   </td>
@@ -116,10 +120,13 @@ const GamesTable: React.FC<GamesTableProps> = ({ games, team, position }) => {
 
                   <td className="px-1 py-1">
                     <div className="flex items-center justify-center">
-                      <img
+                      <Image
                         src={game.game.home_team.url}
                         alt={game.game.home_team.name}
+                        width={8}
+                        height={8}
                         className="w-8 h-8 object-cover rounded-full mr-2"
+                        unoptimized
                       />
                     </div>
                   </td>

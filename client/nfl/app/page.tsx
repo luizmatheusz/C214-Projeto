@@ -4,6 +4,7 @@ import Player from "./Player";
 import TeamSelector from "./TeamSelector";
 import GamesTable from "./GamesTable"; // Certifique-se de importar corretamente
 import { Game } from "./GameCard";
+import Image from "next/image";
 
 interface Team {
   name: string;
@@ -125,10 +126,13 @@ export default function Home() {
     // <div className="bg-white min-h-screen w-full h-screen text-black flex flex-col overflow-auto">
     <div className="bg-white w-full h-screen text-black overflow-auto flex flex-col">
       <div className="flex items-center space-x-4 mb-4 justify-center ">
-        <img
+        <Image
           className="w-28 h-28 object-contain"
           src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/National_Football_League_logo.svg/1200px-National_Football_League_logo.svg.png" // Logo da NFL
           alt="Logo da NFL"
+          width={28}
+          height={28}
+          unoptimized
         />
         <h1 className="text-3xl font-bold">Estatísticas da NFL</h1>
       </div>
@@ -157,10 +161,13 @@ export default function Home() {
               className="cursor-pointer p-2 hover:bg-gray-200 flex items-center"
             >
               {/* Foto do jogador */}
-              <img
+              <Image
                 src={player.img} // Substitua pelo caminho da imagem
                 alt={player.name}
+                width={16}
+                height={14}
                 className="w-16 h-14 rounded-full mr-2" // Tamanho da foto e margem à direita
+                unoptimized
               />
               {/* Nome do jogador */}
               {player.name}

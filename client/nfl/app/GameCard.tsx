@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export interface Game {
   game: {
@@ -39,10 +40,13 @@ const GameCard: React.FC<GameProps> = ({ game }) => {
     <div className="flex items-center justify-around w-10/12 h-20 bg-gray-100 border border-gray-300 rounded-lg shadow-md mx-auto my-4">
       {/* Foto e placar do time mandante */}
       <div className="flex items-center">
-        <img
+        <Image
           src={game.game.away_team.url}
           alt={game.game.away_team.name}
+          width={12}
+          height={12}
           className="w-12 h-12 object-cover rounded-full mr-2"
+          unoptimized
         />
         <span className="text-xl font-semibold">{game.game.away_score}</span>
       </div>
@@ -55,10 +59,13 @@ const GameCard: React.FC<GameProps> = ({ game }) => {
         <span className="text-xl font-semibold mr-2">
           {game.game.home_score}
         </span>
-        <img
+        <Image
           src={game.game.home_team.url}
           alt={game.game.home_team.name}
+          width={12}
+          height={12}
           className="w-12 h-12 object-cover rounded-full"
+          unoptimized
         />
       </div>
 

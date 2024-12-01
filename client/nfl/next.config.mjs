@@ -5,6 +5,9 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: true, // Força o uso do SWC para transformações
   },
+  images: {
+    domains: ["upload.wikimedia.org", "a.espncdn.com", "static.www.nfl.com"], // Adiciona o domínio permitido para carregar imagens externas
+  },
   webpack(config, { isServer }) {
     // Se você precisar de configurações do Babel, você pode usá-las aqui
     if (!isServer) {
