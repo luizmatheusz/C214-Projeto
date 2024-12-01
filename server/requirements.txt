@@ -1,3 +1,4 @@
 Flask
 Flask-CORS
 pytest
+pytest-json
