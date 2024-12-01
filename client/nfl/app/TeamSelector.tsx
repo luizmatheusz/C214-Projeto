@@ -20,26 +20,6 @@ interface TeamSelectorProps {
 const TeamSelector: React.FC<TeamSelectorProps> = ({ teams, onSelectTeam }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
-  const [roster, setRoster] = useState<Player[]>([]);
-
-  // Atualiza as informações do servidor quando o item selecionado muda
-  useEffect(() => {
-    const fetchData = async () => {
-      if (selectedTeam) {
-        try {
-          const response = await fetch(
-            `http://localhost:5000/roster?team=${selectedTeam.abbr}`
-          );
-          const data = await response.json();
-          setRoster(data);
-        } catch (error) {
-          console.error("Erro ao buscar o elenco do time:", error);
-        }
-      }
-    };
-
-    fetchData();
-  }, [selectedTeam]);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -92,8 +72,6 @@ const TeamSelector: React.FC<TeamSelectorProps> = ({ teams, onSelectTeam }) => {
           ))}
         </div>
       )}
-
-      {/* <div>{roster.length === 0 ? "nada" : roster[0].name}</div> */}
     </div>
   );
 };

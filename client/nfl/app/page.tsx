@@ -27,30 +27,11 @@ export default function Home() {
   const [i, setI] = useState(0);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null);
   const [showResults, setShowResults] = useState(false);
 
   useEffect(() => {
     console.log("Valor de games:", games);
   }, [games]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      if (roster && selectedPlayer && selectedTeam) {
-        try {
-          const response = await fetch(
-            `http://localhost:5000/player?name=${selectedPlayer.name}`
-          );
-          const data = await response.json();
-          setPlayer(data);
-        } catch (error) {
-          console.error("Erro ao buscar o jogador selecionado:", error);
-        }
-      }
-    };
-
-    fetchData();
-  }, [selectedPlayer]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -126,7 +107,6 @@ export default function Home() {
 
     if (playerIndex !== -1) {
       // Se o jogador for encontrado, você pode usar playerIndex
-      // setSelectedPlayer(player);
       setI(playerIndex);
       setSearchTerm(player.name);
       setShowResults(false); // Esconde os resultados após a seleção

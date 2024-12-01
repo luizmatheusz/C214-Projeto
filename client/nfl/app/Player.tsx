@@ -1,11 +1,5 @@
 import React from "react";
 
-interface Team {
-  name: string;
-  abbr: string;
-  url: string;
-}
-
 interface PlayerProps {
   player: {
     name?: string;
